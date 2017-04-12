@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>My First HTML Form</title>
+    </head>
+    <body>
+    <h2>Login Form</h2>
+    <form method="POST" action="http://requestb.in/1efob6v1">
+        <p>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="type your username here">
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder= "password here">
+        </p>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+    <h2>Compose an Email</h2>
+    <form method="POST" action="http://requestb.in/1efob6v1">
+        <p>
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text">
+        </p>
+        <p>
+            <label for="body">Body</label>
+            <textarea id="body" name="body" rows="5" columns="40"></textarea>
+        </p>
+        <label><input type="checkbox" id="email" name="email" value="email" checked> Send Me a Copy</label>
+        <p>
+            <button type="submit">Send</button>
+        </p>
+    </form>
+    <h2>Checkboxes</h2>
+    <form method="POST" action="http://requestb.in/1efob6v1">
+        <p>
+            <input type="checkbox" id="mailing_list" name="mailing_list" value="yes" checked> Sign me up for the mailing list!</label>
+            <input id="subject" name="subject" type="text">
+        </p>
+        <p>What operating systems have you used?</p>
+        <label><input type="checkbox" id="os1" name="os[]" value="linux"> Linux</label>
+        <label><input type="checkbox" id="os2" name="os[]" value="osx"> OS X</label>
+        <label><input type="checkbox" id="os3" name="os[]" value="windows"> Windows</label>
+
+        <p>What is the capital of Texas</p>
+        <label>
+            <input type="radio" name="q1" value="houston">
+            Houston
+        </label>
+        <label>
+            <input type="radio" name="q1" value="dallas">
+            Dallas
+        </label>
+        <label>
+            <input type="radio" name="q1" value="austin">
+            Austin
+        </label>
+        <label>
+            <input type="radio" name="q1" value="san antonio">
+            San Antonio
+        </label>
+        <p>Question number 2</p>
+        <label>
+            <input type="radio" name="q2" value="one">
+            One
+        </label>
+        <label>
+            <input type="radio" name="q2" value="two">
+            Two
+        </label>
+        <label>
+            <input type="radio" name="q2" value="three">
+            Three
+        </label>
+        <label>
+            <input type="radio" name="q2" value="four">
+            Four
+        </label>
+        </p>
+        <h2>Form Test</h2>
+        <form method="POST" action="http://requestb.in/1efob6v1">
+            <div>
+                <label for="transmission">Select your tranmission type: </label>
+                <select id="transmission" name="tranmission">
+                    <option>Automatic</option>
+                    <option>Manual</option>
+                </select>
+            </div>
+            <div>
+                <label for="os">What operating systems have you used? </label>
+                <select id="os" name="os[]" multiple>
+                    <option value="Linux">Linux</option>
+                    <option value="osx">OS X</option>
+                    <option value="windows">Windows</option>
+                </select>
+            </div>
+            <p>
+                <button type="submit">Send</button>
+            </p>
+        </form>
+    </body>
+</html>
+

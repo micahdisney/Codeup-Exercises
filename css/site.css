@@ -1,0 +1,47 @@
+h1, h2 {
+    color: green;
+    text-decoration: underline;
+    border: solid;
+    border-style: ridge;
+    text-align: center;
+    border-spacing: 1px;
+    border-color: yellow;
+}
+
+body {
+    font-family: "Indie Flower";
+    background-image: url("../img/congruent_pentagon.png")
+}
+
+
+ul {
+    list-style: square;
+}
+
+th, td {
+    padding: 2px;
+}
+
+th {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* unvisited link (:link) */
+a:link {
+    color: red;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color: black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color: blue;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color: green;
