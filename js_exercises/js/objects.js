@@ -93,6 +93,81 @@
     });
 
 
+    // todo:
+    // Create an array of objects that represent books.
+    // Each book should have a title and an author property.
+    // The author property should be an object with a firstName and lastName.
+    // Be creative and add at least 5 books to the array
+
+    // create a variable that holds an author object
+    var stephenPinker = {firstName: 'Stephen', lastName: 'Pinker'};
+
+    // DONT CREATE AN ARRAY LIKE THE ONE BELOW
+    // for the sake of demonstration, there is quite a bit of mixed syntax
+    // for defining objects and object properties. Really, your code should
+    // choose one style and be consistent
+
+    // an array with 4 elements where each of the elements is an object
+    var books = [
+        {
+            title: 'A Brief History of Time',
+            // the author property's value is itself an object
+            author: {firstName: 'Stephen', lastName: 'Hawking'}
+        }, {
+            title: 'JavaScript: The Good Parts',
+            // we can also define an object like this, javascript doesn't care
+            // about whitespace, so we can use it when it makes sense
+            // to make our code more readable
+            author: {
+                firstName: 'Douglas',
+                lastName: 'Crockford'
+            }
+        }, {
+            // property values can be expressions as well
+            title: 'Fight' + ' ' + 'Club',
+            author: {firstName: 'Chuck', lastName: 'Palahniuk'}
+        }, {
+            title: 'The Stuff of Thought : Language as a Window Into Human Nature',
+            // property values can be variables
+            author: stephenPinker
+        }
+    ];
+
+    // we could also do this
+    books.push({
+        title: 'Guns Germs and Steel',
+        author: {firstName: 'Jared', lastName: 'Diamond'}
+    });
+
+    // log out the books array
+    console.log(books);
+
+    // todo:
+    // Loop through the array of books using .forEach and print out the specified information about each one.
+    // start loop here
+
+    // remember that parameter names are like variable names, the javascript interpreter doesn't
+    // care what we name them, but since code is written for humans, we should give
+    // them meaningful names
+
+    books.forEach(function(book, index) {
+        console.log("Book #" + index);
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + ' ' + book.author.lastName);
+        console.log("---");
+    });
+
+    // end loop here
+
+})();
+
+
+
+
+
+
+
+
 
 
 })();
