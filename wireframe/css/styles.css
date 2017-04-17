@@ -1,0 +1,105 @@
+/* Reset */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav > ul {
+    list-style-type: none;
+}
+
+/* Layout */
+
+header > h1 {
+    float: left;
+
+}
+
+#company {
+    float: left;
+}
+
+header > nav {
+    postion: absolute;
+    top: 0;
+    right: 0;
+}
+
+.nav-header > ul {
+    float: right;
+}
+
+nav: {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.nav-item {
+    display: inline-block;
+    margin: 5px;
+
+}
+
+.hero {
+    clear: both;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+main {
+    float: left;
+    width: 60%;
+    padding-top: 10px;
+    padding-right: 80px;
+
+
+}
+
+aside {
+    width: 30%;
+    float: left;
+    padding-top: 10px;
+}
+
+footer > p {
+    clear: both;
+    padding-top: 60px;
+    float: left;
+}
+
+.footer-nav {
+    float: right;
+    padding-top: 20px;
+    margin: 10px;
+}
+
+#page-wrap {
+    margin: 0 auto;
+    width: 70%;
+    position: relative;
+
+}
+
+.footer-nav > li: {
+    display: inline-block;
+    margin: 15px;
+}
+
+.responsive-image {
+    height: auto;
+    width: 100%;
+}
+
+@media screen and (max-width: 480px); {
+
+}
