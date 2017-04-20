@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #map-canvas {
+            width: 700px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- div to hold map -->
+
+<div id="map-canvas"></div>
+
+<label for="lat">Lat:</label>
+<input type="text" id="lat" value="29.591408">
+
+<label for="lng">long:</label>
+<input type="text" id="lng" value="-98.469695">
+
+<label for="zoomLevel">zoom:</label>
+<input type="hidden" id="zoomLevel" value="10">
+
+<button id="zoomIn">+</button>
+<button id="zoomOut">-</button>
+
+<button id="update">Update map</button>
+
+
+
+
+<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1OPkEaUOXiIUNumlUniyyjeuQ3KtjNvw"></script>
+
+
+
+<!-- Script to show address on map -->
+<script type="text/javascript">
+
+
+    (function () {
+        "use strict";
+        var map = new google.maps.Map(document.getElementById("map-canvas"), null);
+        var apt = { lat: 29.591408, lng: -98.469695 };
+        var lat = parseFloat(document.getElementById("lat").value);
+        var lng = parseFloat(document.getElementById("lng").value);
+        var zoomIn = document.getElementById("zoomIn");
+        var zoomOut = document.getElementById("zoomOut");
+        var zoomLevel = parseInt(document.getElementById("zoomLevel").value);
+        var updateBtn = document.getElementById("update");
+        var infowindow = new google.maps.InfoWindow({
+            content: "Home Sweet Home"
+        });
+
+
+        function renderMap(zoomLevel, lat, lng) {
+            var mapOptions = {
+                // Set the zoom level
+                zoom: zoomLevel,
+                // This sets the center of the map at our location
+                center: {
+                    lat: lat,
+                    lng: lng
+                },
+            };
+
+
+            //Render the map
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+            // Changes the style of the map using the setMapTypeId function
+            //map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+
+            //marker
+            var marker = new google.maps.Marker({
+                position: apt,
+                map: map
+            });
+
+            //info window
+            infowindow.open(map, marker);
+        }
+
+
+
+
+        renderMap(zoomLevel, lat, lng);
+        zoomIn.addEventListener("click", function () {
+            map.setZoom(zoomLevel += 1)
+        });
+        zoomOut.addEventListener("click", function () {
+            map.setZoom(zoomLevel -= 1)
+        });
+        updateBtn.addEventListener("click", function () {
+            lat = parseFloat(document.getElementById("lat").value);
+            lng = parseFloat(document.getElementById("lng").value);
+
+        });
+    })();
+
+
+
+</script>
+</body>
+</html>
+
+<!--AIzaSyA1OPkEaUOXiIUNumlUniyyjeuQ3KtjNvw-->
