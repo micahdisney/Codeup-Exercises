@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FOOD google map API</title>
+
+    <style>
+        #map-display {
+            height: 500px;
+            width: 800px;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Google FOOD Map</h1>
+
+
+<div id="map-display"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM"></script>
+
+<script>
+    (function() {
+        "use strict";
+        // create global info window variable for closing the window
+        var currentInfoWindow = null;
+        // ===========================DRAWING MAP===========================
+        var mapOptions = {
+            zoom: 10,
+            center: {
+                lat: 29.42569,
+                lng: -98.48503
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        // Render the map
+        var map = new google.maps.Map(document.getElementById("map-display"), mapOptions);
+
+        var restaurants = [
+            {
+                name: "Ray's",
+                address: "7214 Blanco Rd, San Antonio, TX 78216",
+                info: "<h3>Ray's</h3>Pizza place"
+            },
+            {
+                name: "Tang Street",
+                address: "Galleria Oaks, 16111 San Pedro Ave, San Antonio, TX 78232",
+                info: "<h3>Tang Street</h3>Chinese food"
+            },
+            {
+                name: "Bush's Chicken",
+                address: "3111 Thousand Oaks, San Antonio, TX 78247",
+                info: "<h3>Bush's Chicken</h3>Chicken Tenders"
+            }
+        ];
+        // loop through array of JS objects and pass in each object to marker function
+        restaurants.forEach(function(restaurant){
+            markIt(restaurant);
+        });
+        // to geocode and create markers
+        function markIt(someObject) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({address: someObject.address}, function(results, status) {
+                if (status === "OK") {
+                    var coordinates = {};
+                    coordinates.lat = results[0].geometry.location.lat();
+                    coordinates.lng = results[0].geometry.location.lng();
+                    addAMarker(coordinates, someObject);
+                }
+            }) ;
+        }
+        // function for adding markers
+        function addAMarker(position, someObject) {
+            var marker = new google.maps.Marker({
+                position: position,
+                animation: google.maps.Animation.DROP,
+                icon: "codeup_arrow.png",
+                map: map
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: someObject.info
+            });
+            marker.addListener("click", function() {
+                if (currentInfoWindow) {
+                    currentInfoWindow.close();
+                }
+                infowindow.open(map, marker);
+                map.setCenter(marker.position);
+                currentInfoWindow = infowindow;
+            });
+        }
+        // initialize the map
+    })();
+</script>
+</body>
+</html>
