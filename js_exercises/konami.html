@@ -4,16 +4,80 @@
     <meta charset="UTF-8">
     <title>Konami Code</title>
 </head>
-<<body>
+<body>
 <h1>Konami Code</h1>
+<p>38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13</p>
+<p>'up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'</p>
 
-<script src="/js/jquery.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
 <script>
+
     "use strict";
 
-    $(document).keyup(function(event){
-        console.log(event.keyCode);
+//    $(document).keyup(function(event){
+//        console.log(event.keyCode);
+//    });
+
+
+    // a key map of allowed keys
+    var allowedKeys = {
+        37: 'left',
+        38: 'up',
+        39: 'right',
+        40: 'down',
+        65: 'a',
+        66: 'b',
+        13: 'enter'
+    };
+
+//-----------------------KEY CODE SEQUENCE-----------------------//
+
+    var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
+//    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+
+    // a variable to remember the 'position' the user has reached so far.
+    var konamiCodePosition = [0];
+
+
+//------------------------EVENT LISTENER-------------------------------//
+
+    $(document).on('keydown', function(e) {
+        // get value of the key code from var allowedKeys
+        var key = allowedKeys[e.keyCode];
+        // get value of keys
+
+        var requiredKey = konamiCode[konamiCodePosition];
+        // compare key with required key
+        if (key === requiredKey) {
+            konamiCodePosition++;
+
+        if (konamiCodePosition === konamiCode.length)
+            activateAlert();
+
+        } else
+            konamiCodePosition = 0;
     });
+
+
+//-----------------------------ALERT------------------------------------//
+
+    function activateAlert() {
+        $("body").css("background-color", "blue");
+        $("body").css("background-color", "red");
+
+        alert("You have added 30 lives!");
+
+    }
+
+
 </script>
 </body>
 </html>
+
+
+
+
+
