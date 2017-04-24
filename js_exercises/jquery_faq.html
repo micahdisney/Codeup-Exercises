@@ -7,6 +7,8 @@
         .invisible {
             display: none;
         }
+
+
     </style>
 </head>
 <body>
@@ -47,16 +49,22 @@
         crossorigin="anonymous"></script>
 
 <script>
-    // the IFFE function in jQuery
-    $(document).ready(function(){
-
-        // All the magic happens in here
-        console.log("ready");
+//    // the IFFE function in jQuery
+//    $(document).ready(function(){
+//
+//        // All the magic happens in here
+//        console.log("ready");
 
 
 //        $('*').css('border','2px solid red');
 
+        $( "body" ).append("<button id='onOff'>On/Off</button>");
 
+        $('.invisible').addClass('invisible_off');
+
+
+        $('button').click(function(){
+            $('.invisible_off').toggleClass('invisible');
 
 
 
