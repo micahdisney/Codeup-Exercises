@@ -2,15 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Konami Code</title>
+
+    <style>
+
+        body{
+            background-color: orangered;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        #container {
+            margin:90px;
+        }
+
+
+        li {
+            height: 50px;
+            width: 75px;
+            margin: 3px;
+            font-size: 20px;
+            background-color: aquamarine;
+            border: 1px solid darkblue;
+            paddding-top: 5px;
+        }
+
+    </style>
+
+
 </head>
 <body>
-<h1>Konami Code</h1>
-<p>38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13</p>
-<p>'up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'</p>
+<h1 class="text-center">Konami Code</h1>
+
+<!--<div id="container">-->
+
+
+    <ul class="list-unstyled list-inline text-center">
+        <!--<li><button id="up1" type="submit">&#x2191</button></li>-->
+        <!--<li><button id="up2" type="submit">&#x2191</button></li>-->
+        <!--<li><button id="down1" type="submit">&#x2193</button></li>-->
+        <!--<li><button id="down2" type="submit">&#x2193</button></li>-->
+        <!--<li><button id="left1" type="submit">&#x2190</button></li>-->
+        <!--<li><button id="right1" type="submit">&#x2192</button></li>-->
+        <!--<li><button id="left2" type="submit">&#x2190</button></li>-->
+        <!--<li><button id="right2" type="submit">&#x2192</button></li>-->
+        <!--<li><button id="b" type="submit">b</button></li>-->
+        <!--<li><button id="a" type="submit">a</button></li>-->
+        <!--<li><button id="enter" type="submit">enter</button></li>-->
+    </ul>
+<!--</div>-->
+
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 
 <script>
@@ -20,6 +72,18 @@
 //    $(document).keyup(function(event){
 //        console.log(event.keyCode);
 //    });
+
+
+//        $(document).ready(function(){
+//        $("body").keydown(function(){
+//            $("body").css("background-color", "orangered");
+//        });
+//        $("body").keyup(function(){
+//            $("body").css("background-color", "greenyellow");
+//        });
+//    });
+
+
 
 
     // a key map of allowed keys
@@ -36,10 +100,25 @@
 //-----------------------KEY CODE SEQUENCE-----------------------//
 
     var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a', 'enter'];
-//    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+
+
+
+    $.each(konamiCode, function(index, value) {
+        $('<li>', {
+            'text': value
+        }).appendTo('ul');
+    });
+
+
+
+
+
+    //    var konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 
     // a variable to remember the 'position' the user has reached so far.
-    var konamiCodePosition = [0];
+    var i = [0];
+
+
 
 
 //------------------------EVENT LISTENER-------------------------------//
@@ -48,30 +127,36 @@
         // get value of the key code from var allowedKeys
         var key = allowedKeys[e.keyCode];
         // get value of keys
-
-        var requiredKey = konamiCode[konamiCodePosition];
+        var requiredKey = konamiCode[i];
         // compare key with required key
         if (key === requiredKey) {
-            konamiCodePosition++;
+            i++;
 
-        if (konamiCodePosition === konamiCode.length)
+
+
+        if (i === konamiCode.length)
             activateAlert();
 
+
         } else
-            konamiCodePosition = 0;
+            i = [0];
+
     });
 
 
 //-----------------------------ALERT------------------------------------//
 
     function activateAlert() {
-        $("body").css("background-color", "blue");
-        $("body").css("background-color", "red");
-
         alert("You have added 30 lives!");
 
-    }
+        $('body').css({
+            "background-color": "red" });
 
+
+//        $('button').css({
+//            "button": "red" });
+
+    }
 
 </script>
 </body>
