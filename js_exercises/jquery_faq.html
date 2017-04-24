@@ -14,7 +14,7 @@
 <body>
 
 <h1>Parks FAQs</h1>
-
+<div></div>
 <dl>
     <dt>Question 1</dt>
     <dd class="invisible">Answer 1</dd>
@@ -39,6 +39,29 @@
 </dl>
 
 
+<h3 class="national-parks-heading">Badlands</h3>
+<ul cod="badlands">
+    <li>Fact 1</li>
+    <li>Fact 2</li>
+    <li>Fact 3</li>
+    <li>Fact 4</li>
+</ul>
+<h3 class="national-parks-heading">Everglades</h3>
+<ul id="everglades">
+    <li>Fact 1</li>
+    <li>Fact 2</li>
+    <li>Fact 3</li>
+    <li>Fact 4</li>
+</ul>
+<h3 class="national-parks-heading">Denali</h3>
+<ul id="denali">
+    <li>Fact 1</li>
+    <li>Fact 2</li>
+    <li>Fact 3</li>
+    <li>Fact 4</li>
+</ul>
+
+
 
 
 
@@ -57,14 +80,22 @@
 
 
 //        $('*').css('border','2px solid red');
+    $(document).ready(function(){
 
-        $( "body" ).append("<button id='onOff'>On/Off</button>");
+        $( "div" ).append("<button id='onOff'>On/Off</button>");
+
+
 
         $('.invisible').addClass('invisible_off');
 
 
-        $('button').click(function(){
+        $('button').click(function() {
             $('.invisible_off').toggleClass('invisible');
+
+
+
+        })
+
 
 
 
