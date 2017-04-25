@@ -8,6 +8,9 @@
             display: none;
         }
 
+        ul {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -40,21 +43,21 @@
 
 
 
-<h3 class="national-parks-heading">Badlands</h3>
+<h3 id='badlands_title' class="national-parks-heading">Badlands</h3>
 <ul id="badlands">
     <li>Fact 1</li>
     <li>Fact 2</li>
     <li>Fact 3</li>
     <li>Fact 4</li>
 </ul>
-<h3 class="national-parks-heading">Everglades</h3>
+<h3 id='everglades_title' class="national-parks-heading">Everglades</h3>
 <ul id="everglades">
     <li>Fact 1</li>
     <li>Fact 2</li>
     <li>Fact 3</li>
     <li>Fact 4</li>
 </ul>
-<h3 class="national-parks-heading">Denali</h3>
+<h3 id='denali_title' class="national-parks-heading">Denali</h3>
 <ul id="denali">
     <li>Fact 1</li>
     <li>Fact 2</li>
@@ -134,13 +137,14 @@
         });
 
 
+        $("h3").click(function() {
+            $(this).next().slideToggle();
+        });
 
 
 
 
-
-
-    });
+});
 </script>
 
 
