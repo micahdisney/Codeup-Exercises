@@ -11,11 +11,14 @@
         ul {
             display: none;
         }
+
     </style>
 </head>
 <body>
 
 <h1>Parks FAQs</h1>
+
+<h2>Register for the site?</h2>
 <div id="parksDiv">Would you like to sign up for our newsletter?<span> x </span></div>
 <dl>
     <dt>Question 1</dt>
@@ -140,6 +143,9 @@
         $("h3").click(function() {
             $(this).next().slideToggle();
         });
+
+        $('h2').hide().delay(8000).fadeIn();
+
 
 
 
