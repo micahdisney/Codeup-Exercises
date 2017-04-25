@@ -8,7 +8,6 @@
             display: none;
         }
 
-
     </style>
 </head>
 <body>
@@ -40,7 +39,7 @@
 
 
 <h3 class="national-parks-heading">Badlands</h3>
-<ul cod="badlands">
+<ul id="badlands">
     <li>Fact 1</li>
     <li>Fact 2</li>
     <li>Fact 3</li>
@@ -61,6 +60,7 @@
     <li>Fact 4</li>
 </ul>
 
+<p></p>
 
 
 
@@ -85,16 +85,40 @@
         $( "div" ).append("<button id='onOff'>On/Off</button>");
 
 
-
         $('.invisible').addClass('invisible_off');
 
 
         $('button').click(function() {
             $('.invisible_off').toggleClass('invisible');
 
+        });
 
 
-        })
+
+        $( "p" ).append("<button id='list_button'>list button</button>");
+
+
+
+
+
+
+
+        var highlightBtn = $("#list_button");
+        highlightBtn.click(function() {
+            $("ul").each(function(index, element) {
+                $(element).children().last().css("background-color", "yellow");
+            });
+        });
+
+
+        $("h3").click(function() {
+            $(this).next().css("font-weight", "bold");
+        });
+
+
+        $("li").click(function() {
+            $(this).parent().children().first().css("color", "blue");
+        });
 
 
 
