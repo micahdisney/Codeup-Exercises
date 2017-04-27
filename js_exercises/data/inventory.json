@@ -30,5 +30,20 @@
             "tool"
         ],
         "price": 10
+    }, {
+        "title": "Saw",
+        "quantity": 25222,
+        "categories": [
+        "tool22"
+        ],
+        "price": 22
+    },  {
+        "title": "Nails",
+        "quantity": 3,
+        "categories": [
+          "outdoor",
+          "indoor"
+        ],
+        "price": 1000
     }
 ]
