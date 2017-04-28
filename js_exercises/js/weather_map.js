@@ -6,11 +6,14 @@
 
 
 
+
+
 var weather_info = $('.w_divcontent');
 var address = $('#address');
 address.val('');
 var submit = $('#submit2');
 var h3 = $('h3');
+
 
 
 
@@ -21,18 +24,29 @@ $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
     units: "imperial"
 }).done(function(data){
 
-
-
+    console.log(data);
 
     var days = data.list;
     $(h3).html(data.city.name + ", " + data.city.country);
     for(i = 0; i < data.list.length; i++){
-        var day = days[i];
-        var daytemps = day.temp;
-        $(weather_info[i]).append("<p>High: " + daytemps.max + " F" + "</p>");
-        $(weather_info[i]).append("<p>Low: " + daytemps.min + " F" + "</p>");
-        console.log(day);
-        console.log(daytemps.max);
+        var dayNumber = days[i];
+        var temperature = dayNumber.temp;
+        var icon = dayNumber.weather[0].icon;
+        var description = dayNumber.weather[0].main;
+        var humidity = dayNumber.humidity;
+        var wind = dayNumber.speed;
+        var pressure = dayNumber.pressure;
+
+
+
+        $(weather_info[i]).append("<p>" + temperature.min + "/" + temperature.max + " °" + "</p>");
+        $(weather_info[i]).append("<img src='http://openweathermap.org/img/w/" + icon + ".png'>");
+        $(weather_info[i]).append("<p>" + description + "</p>");
+        $(weather_info[i]).append("<p>Humidity: " + humidity + "</p>");
+        $(weather_info[i]).append("<p>Wind: " + wind + "</p>");
+        $(weather_info[i]).append("<p>Pressure: " + pressure + "</p>");
+
+
 
 
     }
@@ -82,14 +96,29 @@ google.maps.event.addListener(marker, 'dragend', function(event) {
 
 
 
+
         var days = data.list;
         $(h3).html(data.city.name + ", " + data.city.country);
         $(weather_info).html('');
         for(i = 0; i < data.list.length; i++){
-            var day = days[i];
-            var daytemps = day.temp;
-            $(weather_info[i]).append("<p>High: " + daytemps.max + "F" + "</p>");
-            $(weather_info[i]).append("<p>Low: " + daytemps.min + "F" + "</p>");
+            var dayNumber = days[i];
+            var temperature = dayNumber.temp;
+            var icon = dayNumber.weather[0].icon;
+            var description = dayNumber.weather[0].main;
+
+            var humidity = dayNumber.humidity;
+            var wind = dayNumber.speed;
+            var pressure = dayNumber.pressure;
+
+
+            $(weather_info[i]).append("<p>" + temperature.min + "/" + temperature.max + " °" + "</p>");
+            $(weather_info[i]).append("<img src='http://openweathermap.org/img/w/" + icon + ".png'>");
+            $(weather_info[i]).append("<p>" + description + "</p>");
+
+            $(weather_info[i]).append("<p>Humidity " + humidity + "</p>");
+            $(weather_info[i]).append("<p>Wind: " + wind + "</p>");
+            $(weather_info[i]).append("<p>Pressure: " + pressure + "</p>");
+
 
 
 
@@ -135,10 +164,24 @@ submit.click(function(){
                 $(h3).html(data.city.name + ", " + data.city.country);
                 $(weather_info).html('');
                 for(i = 0; i < data.list.length; i++){
-                    var day = days[i];
-                    var daytemps = day.temp;
-                    $(weather_info[i]).append("<p>High: " + daytemps.max + "F" + "</p>");
-                    $(weather_info[i]).append("<p>Low: " + daytemps.min + "F" + "</p>");
+                    var dayNumber = days[i];
+                    var temperature = dayNumber.temp;
+                    var icon = dayNumber.weather[0].icon;
+                    var description = dayNumber.weather[0].main;
+
+                    var humidity = dayNumber.humidity;
+                    var wind = dayNumber.speed;
+                    var pressure = dayNumber.pressure;
+
+
+                    $(weather_info[i]).append("<p>" + temperature.min + "/" + temperature.max + " °" + "</p>");
+                    $(weather_info[i]).append("<img src='http://openweathermap.org/img/w/" + icon + ".png'>");
+                    $(weather_info[i]).append("<p>" + description + "</p>");
+
+                    $(weather_info[i]).append("<p>Humidity: " + humidity + "</p>");
+                    $(weather_info[i]).append("<p>Wind: " + wind + "</p>");
+                    $(weather_info[i]).append("<p>Pressure: " + pressure + "</p>");
+
 
 
 
@@ -149,6 +192,8 @@ submit.click(function(){
             alert('didnt work' + status);
         }
     });
+
+
 
 
 
