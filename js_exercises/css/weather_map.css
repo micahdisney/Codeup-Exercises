@@ -1,0 +1,27 @@
+body {
+    background-color:deepskyblue;
+}
+
+#container{
+    background-color: deepskyblue;
+    height: 275px;
+    width: 100%;
+    margin: auto;
+}
+.w_div{
+    float: left;
+    margin: 15px;
+    height: 260px;
+    width: 30%;
+    background-color: lightgrey;
+    align-content: center;
+    text-align: center;
+}
+#map-canvas {
+    height: 200px;
+    margin: auto;
+    width: 100%;
+}
+.w_divcontent {
+    text-align: center;
+}
