@@ -1,5 +1,7 @@
 body {
-    background-color:#ABDCFD;
+    /*background-color:#ABDCFD;*/
+    background-color: lightslategrey;
+    color:white;
 }
 
 #container {
@@ -8,7 +10,7 @@ body {
 
 .w_divcontent {
     border: 1px solid black;
-    background-color: #F2F2F2;
+    background-color: darkslategray;
 }
 #map-canvas {
     height: 300px;
