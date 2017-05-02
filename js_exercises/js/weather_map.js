@@ -7,6 +7,9 @@
 
 
 
+(function () {
+
+
 var weather_info = $('.w_divcontent');
 var h3 = $('h3');
 
@@ -22,7 +25,8 @@ var requestedInfo = $.get("http://api.openweathermap.org/data/2.5/forecast/daily
     units: "imperial"
 });
 
-requestedInfo.done(function (data) {
+
+    requestedInfo.done(function (data) {
     var days = data.list;
     $(h3).html(data.city.name);
     for (i = 0; i < data.list.length; i++) {
@@ -41,7 +45,7 @@ requestedInfo.done(function (data) {
         $(weather_info[i]).append("<p>Wind: " + wind + "</p>");
         $(weather_info[i]).append("<p>Pressure: " + pressure + "</p>");
     }
-});
+    });
 
 
 var mapOptions = {
@@ -78,27 +82,6 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
     });
 
 
-    requestedInfo.done(function (data) {
-        var days = data.list;
-        $(h3).html(data.city.name);
-        for (i = 0; i < data.list.length; i++) {
-            var dayNumber = days[i];
-            var temperature = dayNumber.temp;
-            var icon = dayNumber.weather[0].icon;
-            var description = dayNumber.weather[0].main;
-            var subDescription = dayNumber.weather[0].description;
-            var humidity = dayNumber.humidity;
-            var wind = dayNumber.speed;
-            var pressure = dayNumber.pressure;
-            $(weather_info[i]).append("<p id='temp'>" + Math.round(temperature.max) + "°/" + Math.round(temperature.min) + "°" + "</p>");
-            $(weather_info[i]).append("<img src='http://openweathermap.org/img/w/" + icon + ".png'>");
-            $(weather_info[i]).append("<p>" + description + ": " + subDescription + "</p>");
-            $(weather_info[i]).append("<p>Humidity: " + humidity + "</p>");
-            $(weather_info[i]).append("<p>Wind: " + wind + "</p>");
-            $(weather_info[i]).append("<p>Pressure: " + pressure + "</p>");
-        }
-    });
-
 
     requestedInfo.done(function (data) {
         var days = data.list;
@@ -120,8 +103,13 @@ google.maps.event.addListener(marker, 'dragend', function (event) {
             $(weather_info[i]).append("<p>Wind: " + wind + "</p>");
             $(weather_info[i]).append("<p>Pressure: " + pressure + "</p>");
         }
-    })
+
+
+    });
 });
 
 
+
+
+})();
 
